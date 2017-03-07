@@ -5,8 +5,18 @@ Add to `.repo/local_manifests/kccat6.xml`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project path="device/samsung/kccat6" name="IonKiwi/twrp_android_device_samsung_kccat6" remote="github" revision="android-6.0" />
-  <project path="kernel/samsung/kccat6" name="IonKiwi/android_kernel_samsung_kccat6" remote="github" revision="cm-14.1" />
+  <project path="device/samsung/kccat6"
+	   name="github-cygwin/twrp_android_device_samsung_kccat6"
+	   remote="github"
+	   revision="android-7.1" />
+  <project name="LineageOS/android_vendor_qcom_opensource_cryptfs_hw"
+	   path="vendor/qcom/opensource/cryptfs_hw"
+	   remote="github"
+	   revision="cm-14.1" />
+  <project path="kernel/samsung/apq8084"
+	   name="github-cygwin/android_kernel_samsung_apq8084"
+	   remote="github"
+	   revision="cm-14.1" />
 </manifest>
 ```
 
@@ -17,8 +27,5 @@ To build:
 ```sh
 . build/envsetup.sh
 lunch omni_kccat6-eng
-make -j5 recoveryimage
+mka recoveryimage
 ```
-
-Kernel sources are available at: https://github.com/IonKiwi/android_kernel_samsung_kccat6
-
