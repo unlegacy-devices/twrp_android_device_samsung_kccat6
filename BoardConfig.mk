@@ -23,14 +23,12 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Kernel
-TARGET_KERNEL_VARIANT_CONFIG := apq8084_sec_kccat6_eur_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/kccat6
+TARGET_KERNEL_SOURCE := kernel/samsung/apq8084
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
-TARGET_KERNEL_CONFIG := twrp_kccat6_defconfig
-
-#TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/zImage
-#TARGET_PREBUILT_DTB := $(DEVICE_TREE)/dtb.img
+TARGET_KERNEL_CONFIG := twrp_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := apq8084_sec_kccat6_eur_defconfig
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 
 # Boot image
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive user_debug=23 msm_rtb.filter=0x3b7 dwc3_msm.cpu_to_affin=1
@@ -39,8 +37,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
 # 000RU = recovery kernel, 000KU = system kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --board SYSMAGIC000RU
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/bootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x000D00000
