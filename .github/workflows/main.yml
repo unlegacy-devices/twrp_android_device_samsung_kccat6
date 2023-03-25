@@ -40,6 +40,8 @@ jobs:
         export PATH="$HOME/.jdk_7/java-se-7u75-ri/bin:$PATH"
         export JAVA_HOME="$HOME/.jdk_7/java-se-7u75-ri"
         cd ~/TWRP
+        rm -rf ~/TWRP/external/boringssl
+        git clone https://github.com/LineageOS/android_external_boringssl -b cm-13.0 ~/TWRP/external/boringssl
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
